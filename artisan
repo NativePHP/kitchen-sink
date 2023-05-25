@@ -1,0 +1,252 @@
+#!/usr/bin/env php
+<?php
+
+define('LARAVEL_START', microtime(true));
+
+class Loader {
+
+    /**
+     * @var bool
+     */
+    protected static $isRegistered = false;
+
+    /**
+     * @var array|null
+     */
+    public $context;
+
+    /**
+     * @var resource
+     */
+    public $handle;
+
+    public static function register(): void
+    {
+        stream_wrapper_unregister('file');
+        stream_wrapper_register('file', static::class);
+
+        static::$isRegistered = true;
+    }
+
+    public static function unregister(): void
+    {
+        stream_wrapper_restore('file');
+
+        static::$isRegistered = false;
+    }
+
+    protected function raw(callable $callback, ...$rest)
+    {
+        $result = null;
+
+        try {
+            static::unregister();
+            $result = call_user_func_array($callback, $rest);
+        } catch (Exception $t) {
+            throw $t;
+        } finally {
+            static::register();
+        }
+
+        return $result;
+    }
+
+    public function dir_closedir(): void
+    {
+        closedir($this->handle);
+    }
+
+    public function dir_opendir($path, $options)
+    {
+        $this->handle = $this->context ? $this->raw('opendir', $path, $this->context) : $this->raw('opendir', $path);
+
+        return (bool) $this->handle;
+    }
+
+    public function dir_readdir()
+    {
+        return readdir($this->handle);
+    }
+
+    public function dir_rewinddir()
+    {
+        rewinddir($this->handle);
+        return true;
+    }
+
+    public function mkdir($path, $mode, $options)
+    {
+        $recursive = (bool) ($options & STREAM_MKDIR_RECURSIVE);
+        return $this->raw('mkdir', $path, $mode, $recursive, $this->context);
+    }
+
+    public function rename($pathFrom, $pathTo)
+    {
+        return $this->raw('rename', $pathFrom, $pathTo, $this->context);
+    }
+
+    public function rmdir($path, $options)
+    {
+        return $this->raw('rmdir', $path, $this->context);
+    }
+
+    public function stream_cast($castAs)
+    {
+        return $this->handle;
+    }
+
+    public function stream_close()
+    {
+        fclose($this->handle);
+    }
+
+    public function stream_eof()
+    {
+        return feof($this->handle);
+    }
+
+    public function stream_flush()
+    {
+        return fflush($this->handle);
+    }
+
+    public function stream_lock($operation)
+    {
+        return $operation ? flock($this->handle, $operation) : true;
+    }
+
+    public function stream_metadata($path, $option, $value)
+    {
+        switch ($option) {
+            case STREAM_META_TOUCH:
+                $value += [null, null];
+                return $this->raw('touch', $path, $value[0], $value[1]);
+            case STREAM_META_OWNER_NAME:
+            case STREAM_META_OWNER:
+                return $this->raw('chown', $path, $value);
+            case STREAM_META_GROUP_NAME:
+            case STREAM_META_GROUP:
+                return $this->raw('chgrp', $path, $value);
+            case STREAM_META_ACCESS:
+                return $this->raw('chmod', $path, $value);
+        }
+    }
+
+    public function stream_open($path, $mode, $options, &$openedPath)
+    {
+        $path = str_replace(__DIR__, $_SERVER['CURRENT_WORKING_DIRECTORY'], $path);
+        var_dump(__DIR__, $_SERVER['CURRENT_WORKING_DIRECTORY'], $path);
+        $usePath = (bool) ($options & STREAM_USE_PATH);
+
+        if ($mode === 'rb') {
+            $content = $this->raw('file_get_contents', $path, $usePath, $this->context);
+
+            if ($content === false) {
+                return false;
+            }
+        }
+
+        $this->handle = $this->context
+            ? $this->raw('fopen', $path, $mode, $usePath, $this->context)
+            : $this->raw('fopen', $path, $mode, $usePath);
+
+        return (bool) $this->handle;
+    }
+
+    public function stream_read($count)
+    {
+        return fread($this->handle, $count);
+    }
+
+    public function stream_seek($offset, $whence = SEEK_SET)
+    {
+        return fseek($this->handle, $offset, $whence) === 0;
+    }
+
+    public function stream_set_option($option, $arg1, $arg2)
+    {
+        // @todo
+    }
+
+    public function stream_stat()
+    {
+        return fstat($this->handle);
+    }
+
+    public function stream_tell()
+    {
+        return ftell($this->handle);
+    }
+
+    public function stream_truncate($newSize)
+    {
+        return ftruncate($this->handle, $newSize);
+    }
+
+    public function stream_write($data)
+    {
+        return fwrite($this->handle, $data);
+    }
+
+    public function unlink($path)
+    {
+        return $this->raw('unlink', $path);
+    }
+
+    public function url_stat($path, $flags)
+    {
+        $callback = $flags & STREAM_URL_STAT_LINK ? 'lstat' : 'stat';
+
+        return $flags & STREAM_URL_STAT_QUIET ? @$this->raw($callback, $path) : $this->raw($callback, $path);
+    }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader
+| for our application. We just need to utilize it! We'll require it
+| into the script here so that we do not have to worry about the
+| loading of any of our classes manually. It's great to relax.
+|
+*/
+
+require __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run The Artisan Application
+|--------------------------------------------------------------------------
+|
+| When we run the console application, the current CLI command will be
+| executed in this console and the response sent back to a terminal
+| or another output device for the developers. Here goes nothing!
+|
+*/
+
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
+$status = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Once Artisan has finished running, we will fire off the shutdown events
+| so that any final work may be done by the application before we shut
+| down the process. This is the last thing to happen to the request.
+|
+*/
+
+$kernel->terminate($input, $status);
+
+exit($status);
