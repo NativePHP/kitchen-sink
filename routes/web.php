@@ -18,11 +18,7 @@ Route::get('/', function () {
         'title' => 'Welcome',
     ]);
 });
-Route::get('/notifications', function () {
-    return view('notifications', [
-        'title' => 'Notifications',
-    ]);
-});
+Route::view('/notifications', 'notifications');
 Route::view('/clipboard', 'clipboard');
 Route::view('/dialogs', 'dialogs');
 Route::view('/screen', 'screen');
