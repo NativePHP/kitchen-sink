@@ -8,6 +8,8 @@ use Native\Laravel\Facades\Dock;
 use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Window;
 use Native\Laravel\GlobalShortcut;
+use Native\Laravel\Menu\Items\Checkbox;
+use Native\Laravel\Menu\Items\Radio;
 use Native\Laravel\Menu\Menu;
 use Native\Laravel\Window as AppWindow;
 
@@ -19,13 +21,16 @@ class NativeAppServiceProvider
      */
     public function boot(): void
     {
-        Menu::new()
-            ->appMenu()
-            ->submenu('Hey',
-                Menu::new()
-                    ->link('Laravel', 'https://laravel.com')
-            );
-            //->register();
+//        Menu::new()
+//            ->appMenu()
+//            ->submenu('Hey',
+//                Menu::new()
+//                    ->add(
+//                        new Checkbox('Checkbox'),
+//                    )
+//                    ->link('Laravel', 'https://laravel.com')
+//            )
+//            ->register();
 
         Window::new()
             ->url(url('/notifications'))

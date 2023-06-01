@@ -12,18 +12,19 @@ class Dialogs extends Component
     public string $title = 'Select a file';
     public string $buttonLabel = 'Select';
     public bool $multipleSelections = false;
+    public bool $resolveSymlinks = true;
+    public bool $asSheet = false;
 
     public function selectFile()
     {
-        $dialog = Dialog::new()
+        $file = Dialog::new()
             ->title($this->title)
-            ->button($this->buttonLabel);
+            ->button($this->buttonLabel)
+            ->when($this->asSheet, fn (Dialog $dialog) => $dialog->asSheet())
+            ->when($this->multipleSelections, fn (Dialog $dialog) => $dialog->multiple())
+            ->when(!$this->resolveSymlinks, fn (Dialog  $dialog) => $dialog->dontResolveSymlinks())
+            ->show();
 
-        if ($this->multipleSelections) {
-            $dialog->multiple();
-        }
-
-        $file = $dialog->show();
         $this->selectedFile = is_array($file) ? implode(', ', $file) : $file;
     }
 

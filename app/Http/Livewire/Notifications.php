@@ -13,8 +13,8 @@ class Notifications extends Component
     public string $message = 'A notification from NativePHP';
     public bool $notificationClicked = false;
 
-    protected $nativeListeners = [
-        NotificationClicked::class => 'notificationClicked',
+    protected $listeners = [
+        'echo:nativephp,.'.NotificationClicked::class => 'notificationClicked',
     ];
 
     public function sendNotification()

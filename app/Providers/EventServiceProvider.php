@@ -3,11 +3,13 @@
 namespace App\Providers;
 
 use App\Listeners\DeepLinkListener;
+use App\Listeners\MenuItemClickedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use Native\Laravel\Events\App\OpenedFromURL;
+use Native\Laravel\Events\Menu\MenuItemClicked;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         OpenedFromURL::class => [
             DeepLinkListener::class,
+        ],
+        MenuItemClicked::class => [
+            MenuItemClickedListener::class,
         ],
     ];
 

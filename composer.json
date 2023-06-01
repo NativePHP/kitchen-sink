@@ -77,6 +77,10 @@
         },
         {
             "type": "path",
+            "url": "../nativephp-php-bin"
+        },
+        {
+            "type": "path",
             "url": "../nativephp-laravel"
         }
     ]

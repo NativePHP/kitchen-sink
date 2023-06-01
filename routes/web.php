@@ -28,7 +28,11 @@ Route::view('/dialogs', 'dialogs');
 Route::view('/screen', 'screen');
 Route::view('/global-shortcuts', 'global-shortcuts');
 Route::view('/app', 'app');
+Route::view('/window', 'window');
 Route::view('/frameless', 'frameless');
+Route::view('/context-menu', 'context-menu');
+
+Route::view('/new-window', 'new-window');
 
 Route::get('/job', function () {
     dispatch(new App\Jobs\TestJob());

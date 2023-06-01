@@ -10,11 +10,25 @@
                class="transition duration-100 rounded-lg focus:border-transparent border border-gray-200 ring-offset-0 ring-gray-200 focus:ring-[#3A6CD9]/50 focus:ring-4"
                placeholder="Button Label"/>
 
-        <label class="flex items-center space-y-2">
+        <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="multipleSelections"
                    class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
-            <span class="ml-2 text-gray-500 inline-block">Allow multiple selections</span>
+            <span class="ml-2 mt-0 text-gray-500 inline-block">Allow multiple selections</span>
+        </label>
+
+        <label class="flex items-center space-x-2">
+            <input type="checkbox"
+                   wire:model="resolveSymlinks"
+                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+            <span class="ml-2 mt-0 text-gray-500 inline-block">Resolve symlinks</span>
+        </label>
+
+        <label class="flex items-center space-x-2">
+            <input type="checkbox"
+                   wire:model="asSheet"
+                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+            <span class="ml-2 mt-0 text-gray-500 inline-block">Present as sheet (macOS only)</span>
         </label>
     </div>
     <div class="mt-4 flex space-x-4 items-center">

@@ -6,41 +6,32 @@ use Illuminate\Mail\Markdown;
 use Livewire\Component;
 use Native\Laravel\Dialog;
 use Native\Laravel\Events\App\OpenFile;
-use Native\Laravel\Facades\App;
+use Native\Laravel\Facades\Window as NativeWindow;
 
 class Window extends Component
 {
-    public $content = "";
+    public $title = 'NativePHP';
+    public $windowId = '';
 
-    public $filename = "";
-
-    protected $nativeListeners = [
-        OpenFile::class => 'openFile',
+    protected $listeners = [
+        'echo:nativephp,.'.OpenFile::class => 'openFile',
     ];
 
-    public function chooseFile()
+    public function open()
     {
-        $markdownFile = Dialog::new()
-            ->title('Choose a file')
-            ->filter('Markdown', ['md'])
-            ->singleFile()
-            ->show();
+        $window = NativeWindow::new()
+            ->title($this->title)
+            ->url(url('/new-window'));
 
-        $this->openFile($markdownFile);
-        App::addRecentDocument($markdownFile);
+        if ($this->windowId !== '') {
+            $window->id($this->windowId);
+        }
+
+        $window->open();
     }
 
     public function render()
     {
         return view('livewire.window');
-    }
-
-    public function openFile($filename)
-    {
-        if (is_array($filename)) {
-            $filename = $filename['path'];
-        }
-        $this->filename = $filename;
-        $this->content = Markdown::parse(file_get_contents($filename))->toHtml();
     }
 }
