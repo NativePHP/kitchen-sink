@@ -12,12 +12,12 @@
     class=""
 >
 <div class="bg-white h-screen flex">
-    @if (! $blank)
-        <div class="absolute inset-0 h-10 w-full flex items-center justify-center text-gray-800 blurred:text-gray-300 font-medium user-select-none" style="-webkit-app-region: drag">
-            {{ $title ?? '' }}
-        </div>
-        <x-nav />
-    @endif
+    <div class="absolute inset-0 h-10 w-full flex items-center justify-center text-gray-800 blurred:text-gray-300 font-medium user-select-none" style="-webkit-app-region: drag">
+        {{ $title ?? '' }}
+    </div>
+
+    <x-nav />
+
     <div class="pt-12 mt-6 p-6 lg:p-8 shadow-lg flex-1">
         {{ $slot }}
     </div>
