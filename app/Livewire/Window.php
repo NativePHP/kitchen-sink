@@ -11,23 +11,13 @@ use Native\Laravel\Facades\Window as NativeWindow;
 class Window extends Component
 {
     public $title = 'NativePHP';
-    public $windowId = '';
-
-    protected $listeners = [
-        'echo:nativephp,.'.OpenFile::class => 'openFile',
-    ];
+    public $windowId = null;
 
     public function open()
     {
-        $window = NativeWindow::new()
+        $window = NativeWindow::open($this->windowId ?? uniqid())
             ->title($this->title)
             ->url(url('/new-window'));
-
-        if ($this->windowId !== '') {
-            $window->id($this->windowId);
-        }
-
-        $window->open();
     }
 
     public function render()
