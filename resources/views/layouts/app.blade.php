@@ -6,9 +6,7 @@
 
     <title>Laravel</title>
 
-    @livewireStyles
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
 
@@ -85,19 +83,5 @@
         {{ $slot }}
     </div>
 </div>
-@livewireScripts
-<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
-<script>
-    const electron = require('electron');
-    const ipcRenderer = electron.ipcRenderer;
-    ipcRenderer.on('window:blur', () => {
-        document.documentElement.classList.remove('focused');
-        document.documentElement.classList.add('blurred');
-    });
-    ipcRenderer.on('window:focus', () => {
-        document.documentElement.classList.remove('blurred');
-        document.documentElement.classList.add('focused');
-    });
-</script>
 </body>
 </html>

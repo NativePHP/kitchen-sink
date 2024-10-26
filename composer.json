@@ -1,31 +1,25 @@
 {
-    "name": "laravel/laravel",
+    "name": "nativephp/kitchen-sink",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "The NativePHP Kitchen Sink App.",
+    "keywords": ["nativephp", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "beyondcode/laravel-websockets": "^1.14",
-        "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^10.0",
-        "laravel/jetstream": "^3.1",
-        "laravel/sanctum": "^3.2",
+        "php": "^8.3",
+        "laravel/framework": "^11.0",
+        "laravel/jetstream": "^5.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^2.12",
         "nativephp/electron": "*",
-        "pusher/pusher-php-server": "^7.2",
-        "spatie/ray": "^1.37"
+        "livewire/livewire": "^3.5",
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
-        "laravel/dusk": "^7.7",
+        "laravel/dusk": "^8.0",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
-        "spatie/laravel-ignition": "^2.0"
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^10.0"
     },
     "autoload": {
         "psr-4": {
@@ -69,19 +63,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../nativephp-electron"
-        },
-        {
-            "type": "path",
-            "url": "../nativephp-php-bin"
-        },
-        {
-            "type": "path",
-            "url": "../nativephp-laravel"
-        }
-    ]
+    "prefer-stable": true
 }
