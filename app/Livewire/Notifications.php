@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use Livewire\Component;
 use Native\Laravel\Events\Notifications\NotificationClicked;
@@ -14,7 +14,7 @@ class Notifications extends Component
     public bool $notificationClicked = false;
 
     protected $listeners = [
-        'echo:nativephp,.'.NotificationClicked::class => 'notificationClicked',
+        'native:'.NotificationClicked::class => 'notificationClicked',
     ];
 
     public function sendNotification()

@@ -32,11 +32,10 @@ class NativeAppServiceProvider
 //            )
 //            ->register();
 
-        Window::new()
-            ->url(url('/notifications'))
+        Window::open()
+            ->url(url('/'))
             ->titleBarHiddenInset()
-            ->width(900)
-            ->height(500)
-            ->open();
+            ->width(1024)
+            ->height(768);
     }
 }

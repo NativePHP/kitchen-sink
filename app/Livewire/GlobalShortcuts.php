@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Events\GlobalShortcutPressedEvent;
 use Livewire\Component;
