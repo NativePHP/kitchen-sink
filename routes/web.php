@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\ChildProcess;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', function () {
 });
 Route::view('/notifications', 'notifications');
 Route::view('/clipboard', 'clipboard');
+Route::get('/child-processes', ChildProcess::class);
 Route::view('/dialogs', 'dialogs');
 Route::view('/screen', 'screen');
 Route::view('/global-shortcuts', 'global-shortcuts');
