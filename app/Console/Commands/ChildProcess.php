@@ -25,8 +25,31 @@ class ChildProcess extends Command
      */
     public function handle()
     {
+        stream_set_blocking(STDIN, false);
+
+        $start = time();
+
         while (true) {
-            echo date('H:i:s');
+            if (time() - $start >= 5) {
+                $start = time();
+
+                fwrite(STDOUT, date('H:i:s'));
+            }
+
+            if (mt_rand(1, 1_000) === 5) {
+                error_log('A wild error appeared!');
+                exit(1);
+            }
+
+            $input = fgets(STDIN);
+
+            if ($input !== false) {
+                $message = trim($input);
+                fwrite(STDOUT, "Message received: {$message}");
+                unset($message);
+            }
+
+            usleep(100_000);
         }
     }
 }
