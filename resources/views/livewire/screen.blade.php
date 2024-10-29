@@ -1,4 +1,4 @@
-<div wire:poll.100ms>
+<div wire:poll.250ms>
     <div>
         <span class="font-medium text-gray-600">Cursor Position:</span>
         {{ $this->cursorPosition->x }} , {{ $this->cursorPosition->y }}

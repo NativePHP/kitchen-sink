@@ -14,7 +14,7 @@
 
         <label for="badgeCount" class="text-sm font-medium text-gray-700">Badge Count</label>
         <input type="number"
-               wire:model="badgeCount"
+               wire:model.live="badgeCount"
                class="flex-1 transition duration-100 rounded-lg focus:border-transparent border border-gray-200 ring-offset-0 ring-gray-200 focus:ring-[#3A6CD9]/50 focus:ring-4"
                placeholder=""/>
 
