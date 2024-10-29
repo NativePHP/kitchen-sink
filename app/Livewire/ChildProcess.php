@@ -80,8 +80,8 @@ class ChildProcess extends Component
     }
 
     #[On('native:'.ProcessSpawned::class)]
-    public function started(string $alias = null) {
-        $this->log[] = "Process [{$alias}] started!";
+    public function started(string $alias = null, string $pid = null) {
+        $this->log[] = "Process [{$alias}] started with PID [{$pid}]!";
     }
 
     #[On('native:'.ProcessExited::class)]
