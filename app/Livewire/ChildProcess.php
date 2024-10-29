@@ -12,7 +12,7 @@ use Native\Laravel\Events\ChildProcess\ProcessExited;
 
 class ChildProcess extends Component
 {
-    public $alias;
+    public $alias = '';
 
     public $message = '';
 
