@@ -45,12 +45,14 @@ class ChildProcess extends Component
 
     public function start()
     {
-        $this->alias ??= uniqid();
+        if (empty($this->alias)) {
+            $alias = uniqid();
+        }
 
         $this->log[] = "Starting [{$this->alias}]...";
 
         NativeChildProcess::start(
-            $this->alias,
+            $alias ?? $this->alias,
             [PHP_BINARY, 'artisan', 'app:child-process'],
             persistent: $this->persistent
         );
