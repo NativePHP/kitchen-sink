@@ -15,7 +15,7 @@ class GlobalShortcuts extends Component
     public $shortcuts = [];
 
     protected $listeners = [
-        'echo:nativephp,.'.GlobalShortcutPressedEvent::class => 'handleShortcutPressed',
+        'native:.'.GlobalShortcutPressedEvent::class => 'handleShortcutPressed',
     ];
 
     public function saveShortcut()

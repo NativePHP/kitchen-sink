@@ -15,7 +15,7 @@ class ContextMenu extends Component
     public array $latestEvents = [];
 
     protected $listeners = [
-        'echo:nativephp,.'.MenuItemClicked::class => 'menuItemClicked',
+        'native:'.MenuItemClicked::class => 'menuItemClicked',
     ];
 
     public function menuItemClicked($payload)
