@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Facades\App as NativeApp;
 use Native\Laravel\Facades\System;
 
+#[Title('App')]
 class App extends Component
 {
     public $badgeCount = 0;

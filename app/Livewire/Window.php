@@ -3,11 +3,13 @@
 namespace App\Livewire;
 
 use Illuminate\Mail\Markdown;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Dialog;
 use Native\Laravel\Events\App\OpenFile;
 use Native\Laravel\Facades\Window as NativeWindow;
 
+#[Title('Windows')]
 class Window extends Component
 {
     public $title = 'NativePHP';

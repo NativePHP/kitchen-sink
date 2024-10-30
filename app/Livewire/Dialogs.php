@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Dialog;
 
+#[Title('Dialogs')]
 class Dialogs extends Component
 {
     public $selectedFile = '';
