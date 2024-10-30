@@ -2,6 +2,7 @@
 
 use App\Livewire\App;
 use App\Livewire\ChildProcess;
+use App\Livewire\Dialogs;
 use App\Livewire\Screen;
 use App\Livewire\Window;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::get('/', function () {
 Route::view('/notifications', 'notifications');
 Route::view('/clipboard', 'clipboard');
 Route::get('/child-processes', ChildProcess::class);
-Route::view('/dialogs', 'dialogs');
+Route::get('/dialogs', Dialogs::class);
 Route::get('/screen', Screen::class);
 Route::view('/global-shortcuts', 'global-shortcuts');
 Route::get('/app', App::class);

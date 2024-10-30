@@ -33,6 +33,7 @@ class Dialogs extends Component
         $file = Dialog::new()
             ->title($this->title)
             ->button($this->buttonLabel)
+            ->when($this->asSheet, fn (Dialog $dialog) => $dialog->asSheet())
             ->save();
 
         $this->selectedSaveFile = is_array($file) ? implode(', ', $file) : $file;
