@@ -23,7 +23,7 @@ class Dialogs extends Component
             ->when($this->asSheet, fn (Dialog $dialog) => $dialog->asSheet())
             ->when($this->multipleSelections, fn (Dialog $dialog) => $dialog->multiple())
             ->when(!$this->resolveSymlinks, fn (Dialog  $dialog) => $dialog->dontResolveSymlinks())
-            ->show();
+            ->open();
 
         $this->selectedFile = is_array($file) ? implode(', ', $file) : $file;
     }

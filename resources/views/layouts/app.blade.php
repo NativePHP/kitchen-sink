@@ -8,9 +8,7 @@
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body
-    class=""
->
+<body>
 <div class="bg-white h-screen flex">
     @if (! $blank)
         <div class="absolute inset-0 h-10 w-full flex items-center justify-center text-gray-800 blurred:text-gray-300 font-medium user-select-none" style="-webkit-app-region: drag">
