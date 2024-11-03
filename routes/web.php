@@ -3,6 +3,7 @@
 use App\Livewire\App;
 use App\Livewire\ChildProcess;
 use App\Livewire\Dialogs;
+use App\Livewire\Notifications;
 use App\Livewire\Screen;
 use App\Livewire\Window;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,7 @@ Route::get('/', function () {
         'title' => 'Welcome',
     ]);
 });
-Route::view('/notifications', 'notifications');
+Route::get('/notifications', Notifications::class);
 Route::view('/clipboard', 'clipboard');
 Route::get('/child-processes', ChildProcess::class);
 Route::get('/dialogs', Dialogs::class);
