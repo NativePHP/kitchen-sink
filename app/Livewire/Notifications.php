@@ -31,7 +31,7 @@ class Notifications extends Component
     {
         $currentWindow = NativeWindow::current();
 
-        NativeWindow::new()
+        NativeWindow::open()
             ->position(
                 $currentWindow->x,
                 $currentWindow->y + $currentWindow->height
