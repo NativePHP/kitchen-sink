@@ -2,7 +2,10 @@
     "name": "nativephp/kitchen-sink",
     "type": "project",
     "description": "The NativePHP Kitchen Sink App.",
-    "keywords": ["nativephp", "laravel"],
+    "keywords": [
+        "nativephp",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.3",
