@@ -54,8 +54,8 @@ class ChildProcess extends Component
         $this->log[] = "Starting [{$this->alias}]...";
 
         NativeChildProcess::start(
-            $alias ?? $this->alias,
             [PHP_BINARY, 'artisan', 'app:child-process'],
+            $alias ?? $this->alias,
             persistent: $this->persistent
         );
     }
