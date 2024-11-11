@@ -7,7 +7,8 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Dialog;
 use Native\Laravel\Events\App\OpenFile;
-use Native\Laravel\Facades\Window as NativeWindow;
+use Native\Laravel\Facades\Window as WindowFacade;
+use Native\Laravel\Windows\Window as NativeWindow;
 
 #[Title('Windows')]
 class Window extends Component
@@ -20,7 +21,7 @@ class Window extends Component
 
     public function open()
     {
-        NativeWindow::open($this->windowId ?? uniqid())
+        WindowFacade::open($this->windowId ?? uniqid())
             ->title($this->title)
             ->alwaysOnTop($this->alwaysOnTop)
             ->url(url('/new-window'))
@@ -32,17 +33,17 @@ class Window extends Component
 
     public function setTitle()
     {
-        NativeWindow::get($this->windowId)->title($this->title);
+        $this->getWindow()->title($this->title);
     }
 
     public function toggleClosable()
     {
-        NativeWindow::get($this->windowId)->closable($this->closable = !$this->closable);
+        $this->getWindow()->closable($this->closable = !$this->closable);
     }
 
     public function toggleDevTools()
     {
-        $window = NativeWindow::get($this->windowId);
+        $window = $this->getWindow();
 
         if ($window->devToolsOpen()) {
             $window->hideDevTools();
@@ -54,5 +55,12 @@ class Window extends Component
     public function render()
     {
         return view('livewire.window');
+    }
+
+    private function getWindow(): NativeWindow
+    {
+        return ! empty($this->windowId)
+            ? WindowFacade::get($this->windowId)
+            : WindowFacade::current();
     }
 }
