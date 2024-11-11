@@ -2,6 +2,7 @@
 
 use App\Livewire\App;
 use App\Livewire\ChildProcess;
+use App\Livewire\Clipboard;
 use App\Livewire\Dialogs;
 use App\Livewire\Notifications;
 use App\Livewire\Screen;
@@ -20,12 +21,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome', [
-        'title' => 'Welcome',
-    ]);
+    return redirect('/app');
 });
 Route::get('/notifications', Notifications::class);
-Route::view('/clipboard', 'clipboard');
+Route::get('/clipboard', Clipboard::class);
 Route::get('/child-processes', ChildProcess::class);
 Route::get('/dialogs', Dialogs::class);
 Route::get('/screen', Screen::class);
