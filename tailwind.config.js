@@ -26,6 +26,6 @@ module.exports = {
                     return `.focused .${e(`blurred${separator}${className}`)}`
                 })
             })
-        })
-],
+        }),
+    ],
 };
