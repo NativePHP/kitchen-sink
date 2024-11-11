@@ -52,7 +52,7 @@
         ],
         "native:dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd\" -k \"php artisan native:serve --no-interaction\" \"npm run dev\" --names=app,vite"
+            "npx concurrently -c \"#93c5fd,#fb7185\" -k \"php artisan native:serve --no-interaction\" \"npm run dev\" --names=app,vite"
         ]
     },
     "extra": {
