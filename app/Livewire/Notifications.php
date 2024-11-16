@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Events\Notifications\NotificationClicked;
-use Native\Laravel\Facades\Window as NativeWindow;
+use Native\Laravel\Facades\Window;
 use Native\Laravel\Notification;
 
 #[Title('Notifications')]
@@ -29,9 +29,11 @@ class Notifications extends Component
 
     public function framelessWindow()
     {
-        $currentWindow = NativeWindow::current();
+        $currentWindow = Window::current();
 
-        NativeWindow::open()
+        Window::open(uniqid())
+            ->focusable(false)
+            ->showDevTools(false)
             ->position(
                 $currentWindow->x,
                 $currentWindow->y + $currentWindow->height
@@ -39,8 +41,7 @@ class Notifications extends Component
             ->invisibleFrameless()
             ->height(70)
             ->width(200)
-            ->url(url('/frameless'))
-            ->open();
+            ->url(url('/frameless'));
     }
 
     public function notificationClicked()

@@ -33,9 +33,9 @@ Route::get('/screen', Screen::class);
 Route::get('/global-shortcuts', GlobalShortcuts::class);
 Route::get('/app', App::class);
 Route::get('/window', Window::class);
-Route::view('/frameless', 'frameless');
 Route::get('/context-menu', ContextMenu::class);
 
+Route::view('/frameless', 'frameless');
 Route::view('/new-window', 'new-window');
 
 Route::get('/job', function () {
