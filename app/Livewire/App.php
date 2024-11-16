@@ -8,7 +8,7 @@ use Livewire\Component;
 use Native\Laravel\Facades\App as NativeApp;
 use Native\Laravel\Facades\System;
 
-#[Title('App')]
+#[Title('App & System')]
 class App extends Component
 {
     public $badgeCount = 0;
