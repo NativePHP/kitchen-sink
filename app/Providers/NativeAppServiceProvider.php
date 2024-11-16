@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\MyCustomShortcutEvent;
+use App\Events\MenuBarClicked;
 use Native\Laravel\Facades\ContextMenu;
 use Native\Laravel\Facades\Dock;
 use Native\Laravel\Facades\MenuBar;
@@ -15,22 +16,15 @@ use Native\Laravel\Window as AppWindow;
 
 class NativeAppServiceProvider
 {
-    /**
-     * Executed once the native application has been booted.
-     * Use this method to open windows, register global shortcuts, etc.
-     */
     public function boot(): void
     {
-//        Menu::new()
-//            ->appMenu()
-//            ->submenu('Hey',
-//                Menu::new()
-//                    ->add(
-//                        new Checkbox('Checkbox'),
-//                    )
-//                    ->link('Laravel', 'https://laravel.com')
-//            )
-//            ->register();
+        MenuBar::create()
+            ->tooltip('All is quiet')
+            ->showDockIcon()
+            // ->onlyShowContextMenu()
+            // ->event(MenuBarClicked::class)
+            ->resizable(false)
+            ->route('menubar');
 
         Window::open()
             ->url(url('/'))
