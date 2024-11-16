@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Native\Laravel\Facades\App as NativeApp;
@@ -13,6 +14,8 @@ class App extends Component
     public $badgeCount = 0;
 
     public $unlocked = false;
+
+    public Collection $printers;
 
     public function mount()
     {
@@ -32,6 +35,11 @@ class App extends Component
     public function unlockWithTouchID()
     {
         $this->unlocked = System::promptTouchID('unlock NativePHP with Touch ID');
+
+        if ($this->unlocked) {
+            $this->printers = collect(System::printers())
+                ->mapWithKeys(fn ($printer) => [$printer->name => $printer->displayName]);
+        }
     }
 
     public function lock()

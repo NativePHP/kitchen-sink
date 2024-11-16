@@ -24,17 +24,10 @@
         </button>
 
         <label for="printers" class="text-sm font-medium text-gray-700">Printers</label>
-        <div id="printers" x-data="{
-                printers: currentWindow.getPrinters(),
-            }">
-            <template x-for="printer in printers">
-                <span x-text="printer.displayName"></span>
-            </template>
+        <div id="printers">
+            @foreach($printers as $id => $name)
+                <span>{{ $name }}</span>
+            @endforeach
         </div>
     @endif
 </div>
-
-<script>
-    const remote = window.require('@electron/remote')
-    const currentWindow = remote.getCurrentWindow().webContents;
-</script>
