@@ -3,7 +3,9 @@
 use App\Livewire\App;
 use App\Livewire\ChildProcess;
 use App\Livewire\Clipboard;
+use App\Livewire\ContextMenu;
 use App\Livewire\Dialogs;
+use App\Livewire\GlobalShortcuts;
 use App\Livewire\Notifications;
 use App\Livewire\Screen;
 use App\Livewire\Window;
@@ -28,11 +30,11 @@ Route::get('/clipboard', Clipboard::class);
 Route::get('/child-processes', ChildProcess::class);
 Route::get('/dialogs', Dialogs::class);
 Route::get('/screen', Screen::class);
-Route::view('/global-shortcuts', 'global-shortcuts');
+Route::get('/global-shortcuts', GlobalShortcuts::class);
 Route::get('/app', App::class);
 Route::get('/window', Window::class);
 Route::view('/frameless', 'frameless');
-Route::view('/context-menu', 'context-menu');
+Route::get('/context-menu', ContextMenu::class);
 
 Route::view('/new-window', 'new-window');
 
