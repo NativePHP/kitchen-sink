@@ -38,6 +38,13 @@
         <li
             @class([
                 'text-[#434343] text-sm p-1 rounded-lg pl-4',
+                'bg-gray-300/60' => request()->is('dock*'),
+            ])>
+            <a class="inline-block w-full" href="/dock">Dock</a>
+        </li>
+        <li
+            @class([
+                'text-[#434343] text-sm p-1 rounded-lg pl-4',
                 'bg-gray-300/60' => request()->is('global-shortcuts*'),
             ])>
             <a class="inline-block w-full" href="/global-shortcuts">Global Shortcuts</a>
