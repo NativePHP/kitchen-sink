@@ -18,14 +18,6 @@ class NativeAppServiceProvider
 {
     public function boot(): void
     {
-        MenuBar::create()
-            ->tooltip('All is quiet')
-            ->showDockIcon()
-            // ->onlyShowContextMenu()
-            // ->event(MenuBarClicked::class)
-            ->resizable(false)
-            ->route('menubar');
-
         Window::open()
             ->url(url('/'))
             ->titleBarHiddenInset()

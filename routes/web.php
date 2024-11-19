@@ -7,6 +7,7 @@ use App\Livewire\ContextMenu;
 use App\Livewire\Dialogs;
 use App\Livewire\GlobalShortcuts;
 use App\Livewire\MenuBar;
+use App\Livewire\MenuBarApp;
 use App\Livewire\Notifications;
 use App\Livewire\Screen;
 use App\Livewire\Window;
@@ -35,8 +36,9 @@ Route::get('/global-shortcuts', GlobalShortcuts::class);
 Route::get('/app', App::class);
 Route::get('/window', Window::class);
 Route::get('/context-menu', ContextMenu::class);
+Route::get('/menu-bar', MenuBar::class);
 
-Route::get('/menubar', MenuBar::class)->name('menubar');
+Route::get('/menubarapp', MenuBarApp::class)->name('menubar');
 
 Route::view('/frameless', 'frameless');
 Route::view('/new-window', 'new-window');

@@ -45,6 +45,13 @@
         <li
             @class([
                 'text-[#434343] text-sm p-1 rounded-lg pl-4',
+                'bg-gray-300/60' => request()->is('menu-bar*'),
+            ])>
+            <a class="inline-block w-full" href="/menu-bar">MenuBar</a>
+        </li>
+        <li
+            @class([
+                'text-[#434343] text-sm p-1 rounded-lg pl-4',
                 'bg-gray-300/60' => request()->is('notifications*'),
             ])>
             <a class="inline-block w-full" href="/notifications">Notifications</a>
