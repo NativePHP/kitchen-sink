@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/app');
-});
+})->name('home');
 Route::get('/notifications', Notifications::class);
 Route::get('/clipboard', Clipboard::class);
 Route::get('/child-processes', ChildProcess::class);
