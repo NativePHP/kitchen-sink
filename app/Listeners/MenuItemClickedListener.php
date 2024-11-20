@@ -12,6 +12,6 @@ class MenuItemClickedListener
 
     public function handle(MenuItemClicked $event): void
     {
-        ray($event);
+
     }
 }
