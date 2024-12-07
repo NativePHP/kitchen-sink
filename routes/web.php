@@ -32,11 +32,7 @@ Route::get('/notifications', Notifications::class);
 Route::get('/clipboard', Clipboard::class);
 Route::get('/child-processes', ChildProcess::class);
 Route::get('/dialogs', Dialogs::class);
-
-if (PHP_OS === 'Darwin') {
-    Route::get('/dock', Dock::class);
-}
-
+Route::get('/dock', Dock::class);
 Route::get('/screen', Screen::class);
 Route::get('/global-shortcuts', GlobalShortcuts::class);
 Route::get('/app', App::class);
