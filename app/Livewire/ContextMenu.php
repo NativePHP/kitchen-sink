@@ -5,10 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Native\Laravel\Events\Menu\MenuItemClicked;
 use Native\Laravel\Facades\ContextMenu as NativeContextMenu;
-use Native\Laravel\Menu\Items\Checkbox;
-use Native\Laravel\Menu\Items\Label;
-use Native\Laravel\Menu\Items\Link;
-use Native\Laravel\Menu\Menu;
+use Native\Laravel\Facades\Menu;
 
 class ContextMenu extends Component
 {
@@ -20,18 +17,20 @@ class ContextMenu extends Component
 
     public function menuItemClicked($payload)
     {
-        $this->latestEvents[] = $payload['item'];
+        $this->latestEvents[] = $payload;
     }
 
     public function register()
     {
         NativeContextMenu::register(
-            Menu::new()
-                ->label('Hello World')
-                ->separator()
-                ->checkbox('Check me', true)
-                ->link('https://laravel.com', 'Laravel')
-                ->separator()
+            Menu::make(
+                Menu::label('Hello World'),
+                Menu::separator(),
+                Menu::checkbox('Check me', true),
+                Menu::link('https://laravel.com', 'Laravel')
+                    ->openInBrowser(),
+                Menu::separator(),
+            )
         );
 
         $this->latestEvents[] = 'Registered';
