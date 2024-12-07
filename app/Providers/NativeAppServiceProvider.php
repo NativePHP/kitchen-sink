@@ -16,16 +16,17 @@ class NativeAppServiceProvider
             Menu::app(),
             Menu::file(),
             Menu::make(
-                Menu::goToRoute('home')
+                Menu::route('home')
                     ->label('Home')
                     ->icon(public_path('medalTemplate.png')),
-                Menu::goToUrl(url('/window'))
+                Menu::link(url('/window'))
                     ->label('Windows'),
-                Menu::goToUrl('https://nativephp.com')
+                Menu::link('https://nativephp.com')
+                    ->openInBrowser()
                     ->label('External'),
-                Menu::label('Simon')
-                    ->id('simon')
-                    ->event(\Native\Laravel\Events\Menu\MenuItemClicked::class),
+                Menu::label('Custom Event')
+                    ->id('custom')
+                    ->event(\Native\Laravel\Events\Menu\CustomEvent::class),
             )->label('Navigation'),
             Menu::make(
                 Menu::make(
@@ -45,8 +46,10 @@ class NativeAppServiceProvider
                 Menu::separator(),
                 Menu::fullscreen(),
                 Menu::separator(),
-                Menu::link('https://nativephp.com/', 'Docs'),
-                Menu::link('https://nativephp.com/docs/getting-started/sponsoring', 'Sponsor'),
+                Menu::link('https://nativephp.com/', 'Docs')
+                    ->openInBrowser(),
+                Menu::link('https://nativephp.com/docs/getting-started/sponsoring', 'Sponsor')
+                    ->openInBrowser(),
             )->label('Items'),
         );
 
