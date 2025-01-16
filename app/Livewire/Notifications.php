@@ -12,7 +12,9 @@ use Native\Laravel\Notification;
 class Notifications extends Component
 {
     public string $title = 'NativePHP';
+
     public string $message = 'A notification from NativePHP';
+
     public bool $notificationClicked = false;
 
     protected $listeners = [

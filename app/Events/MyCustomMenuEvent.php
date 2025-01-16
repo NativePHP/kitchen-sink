@@ -4,7 +4,7 @@ namespace App\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-class MyCustomShortcutEvent
+class MyCustomMenuEvent
 {
     use Dispatchable;
 

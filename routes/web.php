@@ -45,16 +45,16 @@ Route::get('/menubarapp', MenuBarApp::class)->name('menubar');
 Route::view('/frameless', 'frameless');
 Route::view('/new-window', 'new-window');
 
-
 Route::get('/job', function () {
-    dispatch(new App\Jobs\TestJob());
+    dispatch(new App\Jobs\TestJob);
+
     return redirect('/dashboard');
 })->name('job');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

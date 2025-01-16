@@ -18,7 +18,7 @@ class MenuBarApp extends Component
 
         while ($completion <= 100) {
             set_time_limit(3);
-            MenuBarFacade::tooltip($completion . '% complete');
+            MenuBarFacade::tooltip($completion.'% complete');
             $completion++;
             usleep(mt_rand(50_000, 250_000));
         }

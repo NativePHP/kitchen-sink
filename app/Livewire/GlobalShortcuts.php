@@ -3,8 +3,9 @@
 namespace App\Livewire;
 
 use App\Events\GlobalShortcutPressedEvent;
+use Livewire\Attributes\Session;
 use Livewire\Component;
-use Native\Laravel\GlobalShortcut;
+use Native\Laravel\Facades\GlobalShortcut;
 
 class GlobalShortcuts extends Component
 {
@@ -12,18 +13,19 @@ class GlobalShortcuts extends Component
 
     public $lastPressed;
 
+    // Persist shortcuts across page reloads
+    #[Session]
     public $shortcuts = [];
 
     protected $listeners = [
-        'native:.'.GlobalShortcutPressedEvent::class => 'handleShortcutPressed',
+        'native:'.GlobalShortcutPressedEvent::class => 'handleShortcutPressed',
     ];
 
     public function saveShortcut()
     {
         $accelerator = $this->buildAccelerator($this->shortcut);
 
-        GlobalShortcut::new()
-            ->key($accelerator)
+        GlobalShortcut::key($accelerator)
             ->event(GlobalShortcutPressedEvent::class)
             ->register();
 
@@ -32,8 +34,7 @@ class GlobalShortcuts extends Component
 
     public function removeShortcut($shortcut)
     {
-        GlobalShortcut::new()
-            ->key($shortcut)
+        GlobalShortcut::key($shortcut)
             ->unregister();
 
         $this->shortcuts = array_filter($this->shortcuts, function ($item) use ($shortcut) {
@@ -43,9 +44,9 @@ class GlobalShortcuts extends Component
         $this->lastPressed = null;
     }
 
-    public function handleShortcutPressed($payload)
+    public function handleShortcutPressed($accelerator)
     {
-        $this->lastPressed = $payload['accelerator'];
+        $this->lastPressed = $accelerator;
     }
 
     public function render()
@@ -83,9 +84,9 @@ class GlobalShortcuts extends Component
             $keyString = strtolower($keyString);
 
             if (isset($mapping[$keyString])) {
-                $accelerator .= $mapping[$keyString] . '+';
+                $accelerator .= $mapping[$keyString].'+';
             } else {
-                $accelerator .= $keyString . '+';
+                $accelerator .= $keyString.'+';
             }
         }
 

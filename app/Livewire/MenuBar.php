@@ -2,12 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Events\MenuBarClicked;
 use App\Events\SyncComplete;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Events\MenuBar\MenuBarClicked;
-use Native\Laravel\Facades\ChildProcess;
 use Native\Laravel\Facades\MenuBar as MenuBarFacade;
 use Native\Laravel\Facades\Notification;
 

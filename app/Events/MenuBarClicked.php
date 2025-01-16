@@ -10,14 +10,12 @@ class MenuBarClicked implements ShouldBroadcastNow
 {
     use Dispatchable;
 
-    public function __construct(public array $combo, public array $bounds, public array $position)
-    {
-    }
+    public function __construct(public array $combo, public array $bounds, public array $position) {}
 
     public function broadcastOn(): array
     {
         return [
-            new Channel('nativephp')
+            new Channel('nativephp'),
         ];
     }
 }

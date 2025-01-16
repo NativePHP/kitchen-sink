@@ -13,6 +13,7 @@ class Screen extends Component
     {
         return NativeScreen::cursorPosition();
     }
+
     public function getDisplaysProperty()
     {
         return NativeScreen::displays();

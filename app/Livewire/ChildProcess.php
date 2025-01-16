@@ -5,11 +5,11 @@ namespace App\Livewire;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Facades\ChildProcess as NativeChildProcess;
 use Native\Laravel\Events\ChildProcess\ErrorReceived;
 use Native\Laravel\Events\ChildProcess\MessageReceived;
-use Native\Laravel\Events\ChildProcess\ProcessSpawned;
 use Native\Laravel\Events\ChildProcess\ProcessExited;
+use Native\Laravel\Events\ChildProcess\ProcessSpawned;
+use Native\Laravel\Facades\ChildProcess as NativeChildProcess;
 
 #[Title('Child Processes')]
 class ChildProcess extends Component
@@ -82,23 +82,27 @@ class ChildProcess extends Component
     }
 
     #[On('native:'.ProcessSpawned::class)]
-    public function started(string $alias = null, string $pid = null) {
+    public function started(?string $alias = null, ?string $pid = null)
+    {
         $this->log[] = "Process [{$alias}] started with PID [{$pid}]!";
     }
 
     #[On('native:'.ProcessExited::class)]
-    public function stopped(string $alias = null, int $code = null) {
+    public function stopped(?string $alias = null, ?int $code = null)
+    {
         $this->log[] = "Process [{$alias}] exited with status [{$code}].";
     }
 
     #[On('native:'.MessageReceived::class)]
-    public function messageReceived(string $alias = null, string $data = null) {
+    public function messageReceived(?string $alias = null, ?string $data = null)
+    {
         $data = json_encode($data, JSON_PRETTY_PRINT);
         $this->log[] = "Message received from [{$alias}]: {$data}";
     }
 
     #[On('native:'.ErrorReceived::class)]
-    public function errorReceived(string $alias = null, string $data = null) {
+    public function errorReceived(?string $alias = null, ?string $data = null)
+    {
         $data = json_encode($data, JSON_PRETTY_PRINT);
         $this->log[] = "Error received from [{$alias}]: {$data}";
     }

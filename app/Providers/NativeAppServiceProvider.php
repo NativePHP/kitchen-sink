@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\MyCustomMenuEvent;
 use Native\Laravel\Facades\Menu;
-use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Window;
-use Native\Laravel\Window as AppWindow;
 
 class NativeAppServiceProvider
 {
@@ -26,7 +25,7 @@ class NativeAppServiceProvider
                     ->label('External'),
                 Menu::label('Custom Event')
                     ->id('custom')
-                    ->event(\Native\Laravel\Events\Menu\CustomEvent::class),
+                    ->event(MyCustomMenuEvent::class),
             )->label('Navigation'),
             Menu::make(
                 Menu::make(
