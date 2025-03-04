@@ -14,7 +14,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
-        "nativephp/electron": "^0.9"
+        "nativephp/electron": "^1.0.0-beta"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
