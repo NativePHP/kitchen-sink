@@ -15,9 +15,9 @@ class ContextMenu extends Component
         'native:'.MenuItemClicked::class => 'menuItemClicked',
     ];
 
-    public function menuItemClicked($payload)
+    public function menuItemClicked($item, $combo)
     {
-        $this->latestEvents[] = $payload;
+        $this->latestEvents[] = compact('item', 'combo');
     }
 
     public function register()

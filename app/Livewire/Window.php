@@ -2,11 +2,8 @@
 
 namespace App\Livewire;
 
-use Illuminate\Mail\Markdown;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Dialog;
-use Native\Laravel\Events\App\OpenFile;
 use Native\Laravel\Facades\Window as WindowFacade;
 use Native\Laravel\Windows\Window as NativeWindow;
 
@@ -14,9 +11,13 @@ use Native\Laravel\Windows\Window as NativeWindow;
 class Window extends Component
 {
     public $title = 'NativePHP';
+
     public $showDevTools = false;
+
     public $windowId = null;
+
     public $closable = true;
+
     public $alwaysOnTop = false;
 
     public function open()
@@ -38,7 +39,7 @@ class Window extends Component
 
     public function toggleClosable()
     {
-        $this->getWindow()->closable($this->closable = !$this->closable);
+        $this->getWindow()->closable($this->closable = ! $this->closable);
     }
 
     public function toggleDevTools()
