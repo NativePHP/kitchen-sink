@@ -7,6 +7,16 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../nativephp-electron"
+        },
+        {
+            "type": "path",
+            "url": "../nativephp-laravel"
+        }
+    ],
     "require": {
         "php": "^8.3",
         "laravel/framework": "^11.0",
@@ -14,7 +24,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
-        "nativephp/electron": "^1.0.0-beta"
+        "nativephp/electron": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -38,7 +48,7 @@
         }
     },
     "scripts": {
-        "lint":  "./vendor/bin/pint",
+        "lint": "./vendor/bin/pint",
         "type": "./vendor/bin/phpstan analyse",
         "qa": [
             "@lint",

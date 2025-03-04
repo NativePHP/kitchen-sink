@@ -13,7 +13,7 @@ return [
      * usually in the form of a reverse domain name.
      * For example: com.nativephp.app
      */
-    'app_id' => env('NATIVEPHP_APP_ID', 'com.nativephp.kitchen-app'),
+    'app_id' => env('NATIVEPHP_APP_ID', 'com.nativephp.kitchen-sink'),
 
     /**
      * If your application allows deep linking, you can specify the scheme
@@ -24,7 +24,7 @@ return [
      * This would allow you to open your application using a URL like:
      * nativephp://some/path
      */
-    'deeplink_scheme' => env('NATIVEPHP_DEEPLINK_SCHEME', 'kitchen-app'),
+    'deeplink_scheme' => env('NATIVEPHP_DEEPLINK_SCHEME', 'kitchen-sink'),
 
     /**
      * The author of your application.
