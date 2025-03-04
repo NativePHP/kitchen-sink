@@ -2,11 +2,10 @@
 
 namespace Tests;
 
-use Illuminate\Support\Collection;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Laravel\Dusk\Chrome\ChromeProcess;
+use Illuminate\Support\Collection;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use Symfony\Component\Process\Process;
 
@@ -64,16 +63,16 @@ abstract class DuskTestCase extends BaseTestCase
                 ->setCapability(
                     ChromeOptions::CAPABILITY, $options
                 )
-            ->setCapability(
-                ChromeOptions::CAPABILITY_W3C, [
-                    'binary' => __DIR__.'/../vendor/nativephp/electron/resources/js/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron',
-                    'args' => [
-                        'app='.realpath(__DIR__.'/../vendor/nativephp/electron/resources/js'),
-                        'env.TESTING=1',
-                        'env.APP_PATH='.realpath(__DIR__.'/../'),
+                ->setCapability(
+                    ChromeOptions::CAPABILITY_W3C, [
+                        'binary' => __DIR__.'/../vendor/nativephp/electron/resources/js/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron',
+                        'args' => [
+                            'app='.realpath(__DIR__.'/../vendor/nativephp/electron/resources/js'),
+                            'env.TESTING=1',
+                            'env.APP_PATH='.realpath(__DIR__.'/../'),
+                        ],
                     ]
-                ]
-            )
+                )
         );
     }
 
@@ -83,6 +82,7 @@ abstract class DuskTestCase extends BaseTestCase
     protected function hasHeadlessDisabled(): bool
     {
         return true;
+
         return isset($_SERVER['DUSK_HEADLESS_DISABLED']) ||
                isset($_ENV['DUSK_HEADLESS_DISABLED']);
     }
