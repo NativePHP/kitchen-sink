@@ -14,8 +14,9 @@ class NativeAppServiceProvider
         Menu::create(
             Menu::app(),
             Menu::file(),
+            Menu::edit(),
             Menu::make(
-                Menu::route('home')
+                Menu::route('app')
                     ->label('Home')
                     ->icon(public_path('medalTemplate.png')),
                 Menu::link(url('/window'))
@@ -53,7 +54,7 @@ class NativeAppServiceProvider
         );
 
         Window::open()
-            ->url(url('/'))
+            ->url(route('app'))
             ->titleBarHiddenInset()
             ->fullscreenable(false)
             ->width(1024)
