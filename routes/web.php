@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\TestJob;
 use App\Livewire\App;
 use App\Livewire\ChildProcess;
 use App\Livewire\Clipboard;
@@ -25,9 +26,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/app');
-})->name('home');
 Route::get('/notifications', Notifications::class);
 Route::get('/clipboard', Clipboard::class);
 Route::get('/child-processes', ChildProcess::class);
@@ -35,7 +33,7 @@ Route::get('/dialogs', Dialogs::class);
 Route::get('/dock', Dock::class);
 Route::get('/screen', Screen::class);
 Route::get('/global-shortcuts', GlobalShortcuts::class);
-Route::get('/app', App::class);
+Route::get('/app', App::class)->name('app');
 Route::get('/window', Window::class);
 Route::get('/context-menu', ContextMenu::class);
 Route::get('/menu-bar', MenuBar::class);
@@ -46,17 +44,7 @@ Route::view('/frameless', 'frameless');
 Route::view('/new-window', 'new-window');
 
 Route::get('/job', function () {
-    dispatch(new App\Jobs\TestJob);
+    dispatch(new TestJob);
 
     return redirect('/dashboard');
 })->name('job');
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});

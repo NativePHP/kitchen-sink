@@ -13,7 +13,7 @@
 
             <button
                 wire:click="setTitle"
-                class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+                class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
                 Update Title
             </button>
         </div>
@@ -21,32 +21,32 @@
         <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="showDevTools"
-                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+                   class="transition duration-100 rounded-sm border border-gray-800 focus:ring-0"/>
             <span class="ml-2 mt-0 text-gray-500 inline-block">Show DevTools</span>
         </label>
 
         <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="alwaysOnTop"
-                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+                   class="transition duration-100 rounded-sm border border-gray-800 focus:ring-0"/>
             <span class="ml-2 mt-0 text-gray-500 inline-block">Always on Top</span>
         </label>
 
         <button
             wire:click="open"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Open Window
         </button>
 
         <button
             wire:click="toggleDevTools"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Toggle DevTools
         </button>
 
         <button
             wire:click="toggleClosable"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Toggle Closable
         </button>
     </div>
