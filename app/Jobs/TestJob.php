@@ -16,8 +16,8 @@ class TestJob implements ShouldQueue
 
     public function handle(): void
     {
-        ray('starting job - will sleep for 2 seconds!');
+        info('starting job - will sleep for 2 seconds!');
         sleep(2);
-        ray('done processing the job!');
+        info('done processing the job!');
     }
 }

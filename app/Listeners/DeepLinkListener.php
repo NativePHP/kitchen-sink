@@ -8,6 +8,6 @@ class DeepLinkListener
 {
     public function handle(OpenedFromURL $event): void
     {
-        ray('Opened app from URL: '.$event->url);
+        info('Opened app from URL: '.$event->url);
     }
 }
