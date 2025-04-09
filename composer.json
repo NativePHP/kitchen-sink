@@ -7,22 +7,12 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../nativephp-electron"
-        },
-        {
-            "type": "path",
-            "url": "../nativephp-laravel"
-        }
-    ],
     "require": {
         "php": "^8.3",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
-        "nativephp/electron": "dev-main"
+        "nativephp/electron": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
