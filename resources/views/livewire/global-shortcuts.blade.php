@@ -10,7 +10,7 @@
                 <span class="font-mono text-gray-600">{{ $registeredShortcut }}</span>
                 <button
                     wire:click="removeShortcut('{{ $registeredShortcut }}')"
-                    class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+                    class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
                     Remove
                 </button>
             </li>
@@ -26,7 +26,7 @@
 
         <button
             wire:click="saveShortcut"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Select Shortcut
         </button>
     </div>

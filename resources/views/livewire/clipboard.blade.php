@@ -17,6 +17,6 @@
 
         <button
             wire:click="setClipboard"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">Set Clipboard Content</button>
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">Set Clipboard Content</button>
     </div>
 </div>

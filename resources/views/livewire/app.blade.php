@@ -2,13 +2,13 @@
     @if (! $unlocked)
         <button
             wire:click="unlockWithTouchID"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Unlock with TouchID
         </button>
     @else
         <button
             wire:click="lock"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Lock
         </button>
 
@@ -20,7 +20,7 @@
 
         <button
             wire:click="hide"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">Hide
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">Hide
         </button>
 
         <label for="printers" class="text-sm font-medium text-gray-700">Printers</label>

@@ -3,13 +3,13 @@
     <div class="mb-4 space-y-4 flex-col flex">
         <button
             wire:click="register"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Register Context Menu
         </button>
 
         <button
             wire:click="remove"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Remove Context Menu
         </button>
     </div>

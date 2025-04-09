@@ -13,21 +13,21 @@
         <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="multipleSelections"
-                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+                   class="transition duration-100 rounded-sm border border-gray-800 focus:ring-0"/>
             <span class="ml-2 mt-0 text-gray-500 inline-block">Allow multiple selections</span>
         </label>
 
         <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="resolveSymlinks"
-                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+                   class="transition duration-100 rounded-sm border border-gray-800 focus:ring-0"/>
             <span class="ml-2 mt-0 text-gray-500 inline-block">Resolve symlinks</span>
         </label>
 
         <label class="flex items-center space-x-2">
             <input type="checkbox"
                    wire:model="asSheet"
-                   class="transition duration-100 rounded border border-gray-800 focus:ring-0"/>
+                   class="transition duration-100 rounded-sm border border-gray-800 focus:ring-0"/>
             <span class="ml-2 mt-0 text-gray-500 inline-block">Present as sheet (macOS only)</span>
         </label>
     </div>
@@ -35,7 +35,7 @@
 
         <button
             wire:click="selectFile"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Select File
         </button>
         <div class="size-5">
@@ -57,7 +57,7 @@
     <div class="mt-4 flex space-x-4 items-center">
         <button
             wire:click="saveFile"
-            class="bg-gradient-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow">
+            class="bg-linear-to-b from-[#4B91F7] to-[#367AF6] rounded-lg text-white py-1 px-2 shadow-sm">
             Save Dialog
         </button>
         <div class="size-5">
