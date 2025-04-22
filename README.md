@@ -7,6 +7,7 @@ Feel free to contribute to make it better for everyone.
 What's NativePHP? [Read the docs](https://nativephp.com)
 
 ## Installation
+
 To use this app and check out NativePHP, follow these steps:
 
 1. Clone this repo (`git clone git@github.com:NativePHP/kitchen-sink.git`)
