@@ -11,7 +11,5 @@ What's NativePHP? [Read the docs](https://nativephp.com)
 To use this app and check out NativePHP, follow these steps:
 
 1. Clone this repo (`git clone git@github.com:NativePHP/kitchen-sink.git`)
-2. Change directory into the cloned repo `cd kitchen-sink`
-3. Install dependencies (`composer install && npm i`)
-4. Generate a key `php artisan key:generate`
-5. Run `composer native:dev` and the app should launch!
+2. Install dependencies (`composer install && npm i`)
+3. Run `composer native:dev` and the app should launch!
