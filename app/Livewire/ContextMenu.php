@@ -3,9 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Native\Laravel\Events\Menu\MenuItemClicked;
-use Native\Laravel\Facades\ContextMenu as NativeContextMenu;
-use Native\Laravel\Facades\Menu;
+use Native\Desktop\Events\Menu\MenuItemClicked;
+use Native\Desktop\Facades\ContextMenu as NativeContextMenu;
+use Native\Desktop\Facades\Menu;
 
 class ContextMenu extends Component
 {

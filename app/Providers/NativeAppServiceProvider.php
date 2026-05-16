@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Events\MyCustomMenuEvent;
-use Native\Laravel\Facades\Menu;
-use Native\Laravel\Facades\Window;
+use Native\Desktop\Facades\Menu;
+use Native\Desktop\Facades\Window;
 
 class NativeAppServiceProvider
 {

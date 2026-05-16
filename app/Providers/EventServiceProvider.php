@@ -8,8 +8,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use Native\Laravel\Events\App\OpenedFromURL;
-use Native\Laravel\Events\Menu\MenuItemClicked;
+use Native\Desktop\Events\App\OpenedFromURL;
+use Native\Desktop\Events\Menu\MenuItemClicked;
 
 class EventServiceProvider extends ServiceProvider
 {

@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use Native\Laravel\Events\Menu\MenuItemClicked;
+use Native\Desktop\Events\Menu\MenuItemClicked;
 
 class MenuItemClickedListener
 {

@@ -4,8 +4,8 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Facades\Window as WindowFacade;
-use Native\Laravel\Windows\Window as NativeWindow;
+use Native\Desktop\Facades\Window as WindowFacade;
+use Native\Desktop\Windows\Window as NativeWindow;
 
 #[Title('Windows')]
 class Window extends Component

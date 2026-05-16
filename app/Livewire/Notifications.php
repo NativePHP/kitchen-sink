@@ -4,11 +4,11 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Events\Notifications\NotificationActionClicked;
-use Native\Laravel\Events\Notifications\NotificationClicked;
-use Native\Laravel\Events\Notifications\NotificationReply;
-use Native\Laravel\Facades\Window;
-use Native\Laravel\Notification;
+use Native\Desktop\Events\Notifications\NotificationActionClicked;
+use Native\Desktop\Events\Notifications\NotificationClicked;
+use Native\Desktop\Events\Notifications\NotificationReply;
+use Native\Desktop\Facades\Window;
+use Native\Desktop\Notification;
 
 #[Title('Notifications')]
 class Notifications extends Component
@@ -34,6 +34,17 @@ class Notifications extends Component
         'native:'.NotificationReply::class => 'notificationReplied',
         'native:'.NotificationActionClicked::class => 'notificationActionClicked',
     ];
+
+    public function addAction(): void
+    {
+        $this->actions[] = '';
+    }
+
+    public function removeAction(int $index): void
+    {
+        unset($this->actions[$index]);
+        $this->actions = array_values($this->actions);
+    }
 
     public function sendNotification()
     {
