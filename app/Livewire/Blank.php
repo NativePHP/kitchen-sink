@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Native\Laravel\Facades\Window;
+use Native\Desktop\Facades\Window;
 
 class Blank extends Component
 {

@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use Native\Laravel\Events\App\OpenedFromURL;
+use Native\Desktop\Events\App\OpenedFromURL;
 
 class DeepLinkListener
 {

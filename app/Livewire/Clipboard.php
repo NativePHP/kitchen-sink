@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Native\Laravel\Facades\Clipboard as NativeClipboard;
+use Native\Desktop\Facades\Clipboard as NativeClipboard;
 
 class Clipboard extends Component
 {

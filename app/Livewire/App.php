@@ -5,8 +5,8 @@ namespace App\Livewire;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Facades\App as NativeApp;
-use Native\Laravel\Facades\System;
+use Native\Desktop\Facades\App as NativeApp;
+use Native\Desktop\Facades\System;
 
 #[Title('App & System')]
 class App extends Component

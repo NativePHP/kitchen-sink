@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Events\GlobalShortcutPressedEvent;
 use Livewire\Attributes\Session;
 use Livewire\Component;
-use Native\Laravel\Facades\GlobalShortcut;
+use Native\Desktop\Facades\GlobalShortcut;
 
 class GlobalShortcuts extends Component
 {

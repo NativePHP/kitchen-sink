@@ -5,11 +5,11 @@ namespace App\Livewire;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Events\ChildProcess\ErrorReceived;
-use Native\Laravel\Events\ChildProcess\MessageReceived;
-use Native\Laravel\Events\ChildProcess\ProcessExited;
-use Native\Laravel\Events\ChildProcess\ProcessSpawned;
-use Native\Laravel\Facades\ChildProcess as NativeChildProcess;
+use Native\Desktop\Events\ChildProcess\ErrorReceived;
+use Native\Desktop\Events\ChildProcess\MessageReceived;
+use Native\Desktop\Events\ChildProcess\ProcessExited;
+use Native\Desktop\Events\ChildProcess\ProcessSpawned;
+use Native\Desktop\Facades\ChildProcess as NativeChildProcess;
 
 #[Title('Child Processes')]
 class ChildProcess extends Component

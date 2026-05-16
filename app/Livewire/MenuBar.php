@@ -7,8 +7,8 @@ use App\Events\SyncComplete;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Facades\MenuBar as MenuBarFacade;
-use Native\Laravel\Facades\Notification;
+use Native\Desktop\Facades\MenuBar as MenuBarFacade;
+use Native\Desktop\Facades\Notification;
 
 #[Title('MenuBar')]
 class MenuBar extends Component

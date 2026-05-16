@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-4" x-data="actions">
+<div class="flex flex-col space-y-4">
     <input type="text"
            wire:model="title"
            class="transition duration-100 rounded-lg focus:border-transparent border border-gray-200 ring-offset-0 ring-gray-200 focus:ring-[#3A6CD9]/50 focus:ring-4"
@@ -25,23 +25,22 @@
 
 
     <button
-        x-on:click="$wire.actions.push('')"
+        wire:click="addAction"
         class="bg-gray-600 rounded-lg text-white py-1 px-2 shadow-sm">Add Action
     </button>
     <div class="space-x-2">
-        <template x-for="(action, index) in $wire.actions" :key="index">
-            <div class="flex space-x-2">
+        @foreach ($actions as $index => $action)
+            <div wire:key="action-{{ $index }}" class="flex space-x-2">
                 <input type="text"
-                       x-model="$wire.actions[index]"
+                       wire:model.live="actions.{{ $index }}"
                        class="flex-1 transition duration-100 rounded-lg focus:border-transparent border border-gray-200 ring-offset-0 ring-gray-200 focus:ring-[#3A6CD9]/50 focus:ring-4"
                        placeholder="Action"/>
                 <button
-                    x-on:click="$wire.actions.splice(index, 1)"
+                    wire:click="removeAction({{ $index }})"
                     class="bg-gray-600 rounded-lg text-white py-1 px-2 shadow-sm">Remove
                 </button>
             </div>
-        </template>
-
+        @endforeach
     </div>
     <button
         wire:click="sendNotification"

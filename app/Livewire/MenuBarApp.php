@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Events\SyncComplete;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Native\Laravel\Facades\MenuBar as MenuBarFacade;
+use Native\Desktop\Facades\MenuBar as MenuBarFacade;
 
 class MenuBarApp extends Component
 {

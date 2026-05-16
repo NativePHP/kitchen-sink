@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Native\Laravel\Facades\Dock as DockFacade;
+use Native\Desktop\Facades\Dock as DockFacade;
 
 #[Title('Dock')]
 class Dock extends Component
